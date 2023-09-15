@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} О нас {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1> Войти </h1>
+        <form method="post">
+            {% csrf_token%}<br>
+            {{ form.as_p }}
+            <input type="text" name="username" id="userName" placeholder="Имя пользователя"><br>
+            <input type="password" name="password" id="pwd" placeholder="Пароль"><br>
+
+            <span>{{ form.errors }}</span>
+
+            <button class="btn btn-success" > Войти </button>
+        </form>
+    </div>
+{% endblock %}
