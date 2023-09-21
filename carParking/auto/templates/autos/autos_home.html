@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Ваши автомобили {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Ваши автомобили</h1>
+        {% if autos %}
+            {% for el in autos %}
+                <div class="alert alert-warning">
+
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> Автомобили отсутсвуют </p>
+        {% endif %}
+    </div>
+{% endblock %}

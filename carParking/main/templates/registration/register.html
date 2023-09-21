@@ -1,24 +1,21 @@
 {% extends 'main/layout.html' %}
 
-{% block title %} О нас {% endblock %}
+{% block title %}Create an account{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1> Регистрация </h1>
-        <form method="post">
-            {% csrf_token%}<br>
-            {{ form.username }}
-            {{ form.email }}
-            {{ form.first_name }}
-            {{ form.last_name }}
-            {{ form.date_of_birth }}
-            {{ form.phone_number }}
-            {{ form.password1 }}
-            {{ form.password2 }}
+<div class="features">
+    <h1>Создать аккаунт</h1>
+    <p>Заполните следующую форму:</p>
+    <form action="." method="post">
 
-            <span>{{ form.errors }}</span>
-
-            <button class="btn btn-success" > Войти </button>
-        </form>
-    </div>
+        {% csrf_token %}
+        {{ user_form.username }}
+        {{ user_form.email }}
+        {{ user_form.date_of_birth }}
+        {{ user_form.phone_number }}
+        {{ user_form.password }}
+        {{ user_form.password2 }}
+        <p><input type="submit" value="Создать аккаунт"></p>
+    </form>
+</div>
 {% endblock %}
