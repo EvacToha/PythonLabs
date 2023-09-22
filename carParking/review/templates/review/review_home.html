@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %} Отзывы на сайте {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Отзывы на сайте</h1>
+        {% if reviews %}
+            {% for el in reviews %}
+                <div class="alert alert-warning">
+
+                        {% for i in "x"|rjust:el.grade %}
+                            <img src="{% static 'main/img/gold_star.png' %}" width="50" height="50" style="margin-bottom: 10px">
+                        {% endfor %}
+                        {% if el.grade != 5 %}
+                        {% for i in "x"|rjust:el.dis_grade %}
+                            <img src="{% static 'main/img/gray_star.png' %}" width="50" height="50" style="margin-bottom: 10px">
+                        {% endfor %}
+                        {% endif %}
+                    <h3>{{ el.username }}</h3>
+                    <p>{{ el.full_text }}</p>
+                    <p>{{el.date}}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> Отзывы отсутсвуют </p>
+        {% endif %}
+    </div>
+{% endblock %}

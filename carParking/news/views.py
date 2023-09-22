@@ -38,7 +38,7 @@ def create_news(request):
         form = ArticlesForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('news')
+            return redirect('news_home')
         else:
             error = 'Форма заполнена некорректно'
     form = ArticlesForm()

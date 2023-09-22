@@ -8,16 +8,27 @@ from .forms import UserRegistrationForm, LoginForm
 from .models import Profile
 from django.contrib.auth import authenticate, login
 
+from news.models import Articles
+
+
 def index(request):
+    earliest_news = Articles.objects.earliest('date')
     data = {
-        'title': 'Главная страница',
-        'values': ['Some', 'Hello', '123']
+        'news': earliest_news
     }
     return render(request, 'main/index.html', data)
 
 
 def about(request):
     return render(request, 'main/about.html')
+
+
+def contacts(request):
+    return render(request, 'main/contacts.html')
+
+
+def openings(request):
+    return render(request, 'main/openings.html')
 
 
 @login_required

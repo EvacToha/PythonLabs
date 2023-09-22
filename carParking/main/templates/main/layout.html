@@ -19,12 +19,14 @@
             <a href="{% url 'home' %}"><li><i class="fa-solid fa-house"></i> Главная</li></a>
             <a href="{% url 'about' %}"><li>Про нас</li></a>
             <a href="{% url 'news_home' %}"><li>Новости</li></a>
+            <a href="{% url 'review_home' %}"><li>Отзывы</li></a>
+            <a href="{% url 'faq_home' %}"><li>FAQ</li></a>
             <a href="{% url 'create_news' %}"><li><button class="btn btn-info"><i class="fa-solid fa-plus"></i>Добавить новость</button></li></a>
 
 
 
         </ul>
-    </aside>
+</aside>
     <main>
         {% block content %}
         {% endblock %}

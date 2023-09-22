@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Часто задаваемые вопросы {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Часто задаваемые вопросы</h1>
+        {% if faq %}
+            {% for el in faq %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.full_text }}</p>
+                    <a href="{% url 'faq_detail' el.id %}" class="btn btn-warning">Читать детальнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> Вопросы отсутсвуют </p>
+        {% endif %}
+    </div>
+{% endblock %}

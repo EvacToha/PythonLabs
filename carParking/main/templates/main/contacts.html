@@ -1,0 +1,63 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+{% block title %} О нас {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Наши сотрудники</h1>
+
+        <article class="contacts">
+            <div>
+                <img src="{% static 'main/img/director.jpg' %}" height="500" width="300">
+                <h2>Лалупко Игорь Иванович</h2>
+                <p>Почта: lalupko@mail.ru</p>
+                <p>Должность: Директор компании</p>
+            </div>
+            <br><br>
+
+            <div>
+                <img src="{% static 'main/img/vohech.jpg' %}" height="500" width="300">
+                <h2>Вохеч Антон Павлович</h2>
+                <p>Почта: nechehov@mail.ru</p>
+                <p>Должность: Главный менеджер</p>
+            </div>
+            <br><br>
+
+            <div>
+                <img src="{% static 'main/img/buyanov.jpg' %}" height="500" width="300">
+                <h2>Буянов Никита Александрович</h2>
+                <p>Почта: tarkovBuyan@mail.ru</p>
+                <p>Должность: Специалист по маркетингу</p>
+            </div>
+            <br><br>
+
+            <div>
+                <img src="{% static 'main/img/angelinka.jpg' %}" height="500" width="300">
+                <h2>Карпач Ангелина Александровна</h2>
+                <p>Почта: saluvon@mail.ru</p>
+                <p>Должность: Специалист по клиентскому обслуживанию</p>
+            </div>
+            <br><br>
+
+            <div>
+                <img src="{% static 'main/img/dranik.jpg' %}" height="500" width="300">
+                <h2>Драник Виктор Яковлевич</h2>
+                <p>Почта: smetanka@mail.ru</p>
+                <p>Должность: Сотрудник по безопасности</p>
+            </div>
+            <br><br>
+
+            <div>
+                <img src="{% static 'main/img/cvika.jfif' %}" height="500" width="300">
+                <h2>Чвыка Ядвига Ульяновна</h2>
+                <p>Почта: shlyapa@mail.ru</p>
+                <p>Должность: Бухгалтер по финансам</p>
+            </div>
+            <br><br>
+
+        </article>
+
+        <button class="btn btn-danger">На главную страницу</button>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{faq.title }} {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ faq.title }}</h1>
+        <p>{{ faq.date }}</p>
+        <p>{{ faq.full_text }}</p>
+        <h2>Ответ</h2>
+        <p>{{ faq.answer_text }}</p>
+        <a href="{% url 'faq_home'%}" class="btn btn-info">Назад</a>
+    </div>
+{% endblock %}

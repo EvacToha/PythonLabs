@@ -2,14 +2,19 @@ body {
     background: #2c2c2c;
 }
 
+main {
+    margin-left: 22%;
+}
 aside {
-    float: left;
+    top: 0;
+    left: 0;
+    bottom: 0;
     background: #181818;
     width: 20%;
     padding: 2.5%;
-    height: 100vh;
     color: #fff;
     border-right: 5px solid #4d4d4d;
+    position: fixed
 }
 
 aside .logo {
@@ -23,6 +28,10 @@ aside .logo {
 aside h3 {
     margin-top: 50px;
     font-size: 28px;
+}
+
+figure img {
+    width: 100%;
 }
 
 aside ul {
@@ -97,4 +106,9 @@ main .features input {
     flex-wrap: wrap;
     padding-left: 0;
     text-align: center;
+}
+
+.year {
+    font-size: 20px;
+    color: orange;
 }

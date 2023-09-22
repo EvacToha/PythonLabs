@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'service',
     'auto',
     'place',
+    'faq',
+    'review',
     # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
