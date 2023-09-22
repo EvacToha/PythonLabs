@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Припарковать авто {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Ваши автомобили</h1>
+        <form method="POST">
+            {% csrf_token%}
+        <div class="autos-list">
+            {% if autos %}
+                {% for el in autos %}
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{el.image.url}}" class="card-img-top" alt="car">
+                        <div class="card-body">
+                            <h5 class="card-title">{{el.brand}} {{el.model}}</h5>
+                            {% if el.isParked %}
+                                <button class="btn btn-success" disabled>Уже припаркована</button>
+                            {% else %}
+                                <button class="btn btn-success" type="submit" value="{{el.id}}" name="car_id">Припарковать</button>
+                            {% endif %}
+                        </div>
+                     </div>
+            {% endfor %}
+        </div>
+
+            {% else %}
+                <p> Автомобили отсутсвуют </p>
+            {% endif %}
+            </form>
+        <a href="{% url 'places_home'%}" class="btn btn-info">Назад</a>
+    </div>
+{% endblock %}

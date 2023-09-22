@@ -6,6 +6,7 @@ from django.views.generic import DetailView, UpdateView, DeleteView
 
 def news_home(request):
     news = Articles.objects.all()
+
     data = {
         'news': news
     }

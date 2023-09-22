@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Парковочные места {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Все парковочные места</h1>
+        <form method="post">{% csrf_token%}
+        <div class="autos-list">
+            {% if places %}
+                {% for el in places %}
+                    <div class="card-place" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{el.number}}</h5>
+                            <p class="card-text">Цена {{el.price}}</p>
+                            {% if el.auto_id %}
+                                <button class="btn btn-success" disabled>Занято</button>
+                            {% else %}
+                                <button class="btn btn-success" name="place_number" type="submit" value="{{el.number}}">Занять место</button>
+                            {% endif %}
+                        </div>
+                     </div>
+                {% endfor %}
+        </div>
+            {% else %}
+                <p> Парковочные места отсутсвуют </p>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

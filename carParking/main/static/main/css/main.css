@@ -76,7 +76,25 @@ main .features input {
     text-align: center;
 }
 
-form {
-    margin: 50px auto;
-    width: 500px;
+
+
+.card {
+    list-style: none;
+    flex: 0 0 30%;
+    margin: 10px 1%;
+    background-color: rgba(2,2,2,255);
+}
+
+.card-place {
+    list-style: none;
+    flex: 0 0 14%;
+    margin: 10px 1%;
+    background-color: rgba(2,2,2,255);
+}
+
+.autos-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    text-align: center;
 }

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'news',
     'service',
     'auto',
+    'place',
     # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

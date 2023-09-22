@@ -8,6 +8,7 @@ class Auto(models.Model):
     model = models.CharField('Модель', max_length=250)
     image = models.ImageField('Картинка', upload_to='images/')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+    isParked = models.BooleanField('Припаркована', default='False')
 
     def __str__(self):
         return self.brand + ' ' + self.model

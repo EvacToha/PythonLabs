@@ -5,14 +5,21 @@
 {% block content %}
     <div class="features">
         <h1>Ваши автомобили</h1>
-        {% if autos %}
-            {% for el in autos %}
-                <div class="alert alert-warning">
+        <div class="autos-list">
+            {% if autos %}
+                {% for el in autos %}
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{el.image.url}}" class="card-img-top" alt="car" >
+                        <div class="card-body">
+                            <h5 class="card-title">{{el.brand}} {{el.model}}</h5>
+                            <a href="{% url 'auto_delete' el.id %}" class="btn btn-primary">Удалить</a>
+                        </div>
+                     </div>
+                {% endfor %}
+        </div>
 
-                </div>
-            {% endfor %}
-        {% else %}
-            <p> Автомобили отсутсвуют </p>
-        {% endif %}
+            {% else %}
+                <p> Автомобили отсутсвуют </p>
+            {% endif %}
     </div>
 {% endblock %}
