@@ -12,7 +12,13 @@
                         <img src="{{el.image.url}}" class="card-img-top" alt="car" >
                         <div class="card-body">
                             <h5 class="card-title">{{el.brand}} {{el.model}}</h5>
+                            <form method="POST">
                             <a href="{% url 'auto_delete' el.id %}" class="btn btn-primary">Удалить</a>
+                            {% if el.isParked %}
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-info" value="{{el.id}}" name="auto_id">Отпарковать</button>
+                            {% endif %}
+                             </form>
                         </div>
                      </div>
                 {% endfor %}

@@ -4,12 +4,21 @@ from .models import Auto
 from .forms import AutosForm
 from django.views.generic import DetailView, UpdateView, DeleteView
 
+from place.models import Place
+
 
 @login_required
 def autos_home(request):
+    if request.method == 'POST':
+        auto_id = request.POST.get('auto_id')
+        auto = Auto.objects.get(id=auto_id)
+        auto.isParked = False
+        place = Place.objects.get(auto_id=auto_id)
+        place.auto_id = None
+        place.save()
+        auto.save()
 
     user = request.user
-
     if Auto.objects.filter(owner_id=user.id).exists():
         autos = Auto.objects.filter(owner_id=user.id)
     else:

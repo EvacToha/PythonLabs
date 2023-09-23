@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Промокоды {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Промокоды</h1>
+        <form method="post">
+            {% csrf_token%}<br>
+            <input style="margin: 40px auto" type="text" class="form-control" placeholder="Промокод" name="promo_field">
+            <div style="margin: 40px" >{{ message }}</div>
+
+            <button class="btn btn-success" type="submit">Использовать</button>
+        </form>
+
+        {% if request.user.is_superuser %}
+        <div style="margin-top: 40px">
+            <h2>Все промокоды</h2>
+            {% for el in promos %}
+                <div style="display: flex">
+                    <p>Промокод: {{el.promo}}</p>
+                    {% if el.isActive %}
+                        <button class="btn btn-success"> Действителен</button>
+                    {% else %}
+                        <button class="btn btn-success" disabled> Использован .</button>
+                    {% endif%}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

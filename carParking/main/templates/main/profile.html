@@ -1,3 +1,24 @@
 {% extends 'main/layout.html' %}
 
-{{ user.username }}
+{% block title %} Профиль {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Профиль </h1>
+        <p style="text-align: left; max-width: 1000px">
+            Имя: {{request.user.username}}
+        </p>
+        <p style="text-align: left; max-width: 1000px">
+            Почта: {{request.user.email}}
+        </p>
+        <p style="text-align: left; max-width: 1000px">
+            Телефон: {{profile.phone_number}}
+        </p>
+        <p style="text-align: left; max-width: 1000px">
+            Дата рождения: {{profile.date_of_birth}}
+        </p>
+        <p style="text-align: left; max-width: 1000px">
+            Баланс: {{profile.money}}
+        </p>
+    </div>
+{% endblock %}

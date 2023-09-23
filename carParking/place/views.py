@@ -20,6 +20,13 @@ def places_home(request):
 
 
 def choose_car(request, place_number):
+    user = request.user
+    autos = Auto.objects.filter(owner_id=user.id)
+    data = {
+        'autos': autos,
+        'place_number': place_number
+    }
+
     if request.method == 'POST':
         place = Place.objects.get(number=place_number)
         place.auto_id = request.POST.get('car_id')
@@ -27,13 +34,8 @@ def choose_car(request, place_number):
         auto.isParked = True
         auto.save()
         place.save()
-        redirect('/places')
-    user = request.user
-    autos = Auto.objects.filter(owner_id=user.id)
-    data = {
-        'autos': autos,
-        'place_number': place_number
-    }
+        return redirect('places_home')
+
     return render(request, 'places/choose_car.html', data)
 
 

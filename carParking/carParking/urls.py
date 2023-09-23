@@ -21,13 +21,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('news/', include('news.urls')),
     path('autos/', include('auto.urls')),
     path('places/', include('place.urls')),
     path('faq/', include('faq.urls')),
     path('review/', include('review.urls')),
+    path('promo/', include('promo.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

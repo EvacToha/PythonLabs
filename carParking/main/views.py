@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, LoginForm
 from .models import Profile
 from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import logout
 from news.models import Articles
 
 
@@ -33,7 +33,13 @@ def openings(request):
 
 @login_required
 def profile(request):
-    return render(request, 'main/profile.html')
+    user = request.user
+    profile_user = Profile.objects.get(user_id=user.id)
+    data = {
+        'user': user,
+        'profile': profile_user
+    }
+    return render(request, 'main/profile.html', data)
 
 
 def register(request):
@@ -71,3 +77,8 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
+
+
+def user_logout(request):
+    logout(request)
+    return render(request, 'registration/logout.html')
